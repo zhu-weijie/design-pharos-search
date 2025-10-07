@@ -2,7 +2,7 @@
 
 ## Logical View (C4 Component Diagram)
 
-### Milestone 01
+### Milestone 01: Establish a Monolithic Application Core
 
 ```mermaid
 graph TD
@@ -22,7 +22,7 @@ graph TD
     click API "https://g.co/expl/Uq3a" "Component: API\nResponsibility: Exposes a single HTTP endpoint to accept user search queries. Queries the Indexer and returns results."
 ```
 
-### Milestone 02
+### Milestone 02: Define an In-Memory Data Flow
 
 ```mermaid
 graph TD
@@ -50,7 +50,7 @@ graph TD
     click InvertedIndex "https://g.co/expl/qK5g" "Data Structure: An in-memory hash map where keys are words (tokens) and values are lists of document identifiers."
 ```
 
-### Milestone 03
+### Milestone 03: Expose Core Functionality via a Rudimentary API
 
 ```mermaid
 graph TD
@@ -82,7 +82,7 @@ graph TD
     click InvertedIndex "https://g.co/expl/qK5g" "Data Structure: An in-memory hash map where keys are words (tokens) and values are lists of document identifiers (URLs)."
 ```
 
-### Milestone 04
+### Milestone 04: Introduce an Asynchronous Message Bus for Decoupling
 
 ```mermaid
 graph TD
@@ -108,7 +108,7 @@ graph TD
     click MessageQueue "https://g.co/expl/jH3p" "Component: Message Queue\nResponsibility: Provides a durable, asynchronous communication channel between the Crawler and the Indexer."
 ```
 
-### Milestone 05
+### Milestone 05: Establish a Centralized, Durable Content Store
 
 ```mermaid
 graph TD
@@ -136,7 +136,7 @@ graph TD
     click ContentStore "https://g.co/expl/aB5c" "Component: Content Store\nResponsibility: Provides a durable, highly-available repository for raw web page content."
 ```
 
-### Milestone 06
+### Milestone 06: Evolve the Index into a Persistent, Sharded Data Store
 
 ```mermaid
 graph TD
@@ -163,7 +163,7 @@ graph TD
     click SearchIndex "https://g.co/expl/tP8r" "Component: Search Index\nResponsibility: Provides a durable, scalable, and queryable data store for the inverted index and all searchable content."
 ```
 
-### Milestone 07
+### Milestone 07: Define the Infrastructure-as-Code (IaC) and Containerization Strategy
 
 ```mermaid
 graph TD
@@ -188,7 +188,7 @@ graph TD
     D --> G;
 ```
 
-### Milestone 08
+### Milestone 08: Introduce a Pluggable Ranking and Relevancy Subsystem
 
 ```mermaid
 graph TD
@@ -218,7 +218,7 @@ graph TD
     click SearchIndex "https://g.co/expl/tP8r" "Component: Search Index\nResponsibility: Acts as the primary candidate retrieval engine. Optimized for fast, broad-recall text searches."
 ```
 
-### Milestone 09
+### Milestone 09: Formalize the URL Frontier as a Dedicated Service
 
 ```mermaid
 graph TD
@@ -243,7 +243,7 @@ graph TD
     click UrlFrontier "https://g.co/expl/wZ9c" "Component: URL Frontier Service\nResponsibility: The stateful scheduler for the entire crawl operation. Manages URL storage, de-duplication, prioritization, and politeness."
 ```
 
-### Milestone 10
+### Milestone 10: Establish a Data Processing Pipeline for Enrichment
 
 ```mermaid
 graph TD
@@ -273,7 +273,7 @@ graph TD
     click Loader "https://g.co/expl/lH6g" "Component: Index Loader Stage\nResponsibility: The final stage. Formats the fully enriched data and loads it into the Search Index."
 ```
 
-### Milestone 11
+### Milestone 11: Integrate a Distributed Caching Layer
 
 ```mermaid
 graph TD
@@ -381,7 +381,7 @@ graph TD
 
 ## Physical View (Deployment Diagram)
 
-### Milestone 01
+### Milestone 01: Establish a Monolithic Application Core
 
 ```mermaid
 graph TD
@@ -401,7 +401,7 @@ graph TD
     click Monolith "https://g.co/expl/bN7k" "Technology: Go / Python / Node.js\nA single, compiled binary or script running the entire application."
 ```
 
-### Milestone 02
+### Milestone 02: Define an In-Memory Data Flow
 
 ```mermaid
 graph TD
@@ -421,7 +421,7 @@ graph TD
     click Monolith "https://g.co/expl/bN7k" "Technology: Go / Python / Node.js\nA single, compiled binary or script running the entire application."
 ```
 
-### Milestone 03
+### Milestone 03: Expose Core Functionality via a Rudimentary API
 
 ```mermaid
 graph TD
@@ -441,7 +441,7 @@ graph TD
     click Monolith "https://g.co/expl/bN7k" "Technology: Go / Python / Node.js\nExposes an HTTP server on a specific port (e.g., 8080)."
 ```
 
-### Milestone 04
+### Milestone 04: Introduce an Asynchronous Message Bus for Decoupling
 
 ```mermaid
 graph TD
@@ -467,7 +467,7 @@ graph TD
     class CrawlerSvc,IndexerSvc,ApiSvc,MessageBus tech;
 ```
 
-### Milestone 05
+### Milestone 05: Establish a Centralized, Durable Content Store
 
 ```mermaid
 graph TD
@@ -498,7 +498,7 @@ graph TD
     class CrawlerSvc,IndexerSvc,ApiSvc,MessageBus,ObjectStore tech;
 ```
 
-### Milestone 06
+### Milestone 06: Evolve the Index into a Persistent, Sharded Data Store
 
 ```mermaid
 graph TD
@@ -529,7 +529,7 @@ graph TD
     class CrawlerSvc,IndexerSvc,ApiSvc,MessageBus,ObjectStore,SearchDB tech;
 ```
 
-### Milestone 07
+### Milestone 07: Define the Infrastructure-as-Code (IaC) and Containerization Strategy
 
 ```mermaid
 graph TD
@@ -557,7 +557,7 @@ graph TD
     class CodeRepo,A,B,C,D,E,F,G tech;
 ```
 
-### Milestone 08
+### Milestone 08: Introduce a Pluggable Ranking and Relevancy Subsystem
 
 ```mermaid
 graph TD
@@ -587,7 +587,7 @@ graph TD
     class CrawlerSvc,IndexerSvc,ApiSvc,RankingSvc,MessageBus,ObjectStore,SearchDB tech;
 ```
 
-### Milestone 09
+### Milestone 09: Formalize the URL Frontier as a Dedicated Service
 
 ```mermaid
 graph TD
@@ -618,7 +618,7 @@ graph TD
     end
 ```
 
-### Milestone 10
+### Milestone 10: Establish a Data Processing Pipeline for Enrichment
 
 ```mermaid
 graph TD
@@ -656,7 +656,7 @@ graph TD
     end
 ```
 
-### Milestone 11
+### Milestone 11: Integrate a Distributed Caching Layer
 
 ```mermaid
 graph TD
