@@ -47,10 +47,6 @@ graph TD
     %% Component Descriptions
     classDef component fill:#82a9d9,stroke:#333,stroke-width:2px;
     class Deduplication,Enrichment,Loader,Crawler component;
-
-    click Deduplication "https://g.co/expl/dF4e" "Component: Deduplication Stage\nResponsibility: Consumes the initial message. Retrieves content and calculates a hash (e.g., Simhash) to check for and filter out near-duplicates. Passes a unique content message to the next stage."
-    click Enrichment "https://g.co/expl/eG5f" "Component: Enrichment Stage\nResponsibility: Performs NLP tasks like language identification, named-entity recognition, etc. Appends this metadata to the message and passes it on."
-    click Loader "https://g.co/expl/lH6g" "Component: Index Loader Stage\nResponsibility: The final stage. Formats the fully enriched data and loads it into the Search Index."
 ```
 
 ---

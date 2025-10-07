@@ -43,10 +43,6 @@ graph TD
 
     classDef data fill:#f9f9f9,stroke:#333,stroke-width:2px,stroke-dasharray: 5 5;
     class MessageQueue,SearchIndex data;
-
-    click Indexer "https://g.co/expl/y7sD" "Component: Indexer\nResponsibility: A pure data processing service. Consumes pointers, retrieves content, and transforms it into documents for the Search Index."
-    click API "https://g.co/expl/Uq3a" "Component: API\nResponsibility: Parses user queries and executes them directly against the Search Index to retrieve results."
-    click SearchIndex "https://g.co/expl/tP8r" "Component: Search Index\nResponsibility: Provides a durable, scalable, and queryable data store for the inverted index and all searchable content."
 ```
 
 ---

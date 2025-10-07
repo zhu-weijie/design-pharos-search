@@ -46,10 +46,6 @@ graph TD
 
     classDef data fill:#f9f9f9,stroke:#333,stroke-width:2px,stroke-dasharray: 5 5;
     class SearchIndex data;
-
-    click API "https://g.co/expl/Uq3a" "Component: API\nResponsibility: Orchestrates the 'retrieve and re-rank' process. Queries the Search Index for candidates, then calls the Ranking Service to get the final result order."
-    click RankingSvc "https://g.co/expl/vF7b" "Component: Ranking Service\nResponsibility: Accepts a list of candidate documents and applies advanced, pluggable scoring algorithms to produce a final, relevance-sorted list."
-    click SearchIndex "https://g.co/expl/tP8r" "Component: Search Index\nResponsibility: Acts as the primary candidate retrieval engine. Optimized for fast, broad-recall text searches."
 ```
 
 ---

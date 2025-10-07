@@ -40,12 +40,6 @@ graph TD
 
     classDef data fill:#f9f9f9,stroke:#333,stroke-width:2px,stroke-dasharray: 5 5;
     class CrawledPage,InvertedIndex data;
-
-    click Crawler "https://g.co/expl/gKEp" "Component: Crawler\nResponsibility: Fetches HTML and produces a CrawledPage object."
-    click Indexer "https://g.co/expl/y7sD" "Component: Indexer\nResponsibility: Consumes CrawledPage objects to build and maintain the InvertedIndex."
-    click API "https://g.co/expl/Uq3a" "Component: API\nResponsibility: Queries the InvertedIndex to serve user requests."
-    click CrawledPage "https://g.co/expl/jH3p" "Data Object: A struct/class containing the page's URL and its raw HTML content."
-    click InvertedIndex "https://g.co/expl/qK5g" "Data Structure: An in-memory hash map where keys are words (tokens) and values are lists of document identifiers."
 ```
 
 ---
@@ -68,8 +62,6 @@ graph TD
     %% Technology Choices
     classDef tech fill:#9d82d9,stroke:#333,stroke-width:2px;
     class Monolith tech;
-
-    click Monolith "https://g.co/expl/bN7k" "Technology: Go / Python / Node.js\nA single, compiled binary or script running the entire application."
 ```
 
 ---

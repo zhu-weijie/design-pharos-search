@@ -45,10 +45,6 @@ graph TD
 
     classDef data fill:#f9f9f9,stroke:#333,stroke-width:2px,stroke-dasharray: 5 5;
     class MessageQueue,ContentStore data;
-
-    click Crawler "https://g.co/expl/gKEp" "Component: Crawler\nResponsibility: Fetches HTML, saves it to the Content Store, and publishes a pointer to the Message Queue."
-    click Indexer "https://g.co/expl/y7sD" "Component: Indexer\nResponsibility: Consumes pointers, retrieves content from the Content Store, and updates its index."
-    click ContentStore "https://g.co/expl/aB5c" "Component: Content Store\nResponsibility: Provides a durable, highly-available repository for raw web page content."
 ```
 
 ---

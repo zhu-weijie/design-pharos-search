@@ -53,9 +53,6 @@ graph TD
 
     classDef data fill:#f9f9f9,stroke:#333,stroke-width:2px,stroke-dasharray: 5 5;
     class SearchIndex,CachingSvc data;
-
-    click API "https://g.co/expl/Uq3a" "Component: API\nResponsibility: Implements the cache-aside pattern. Checks the cache first. On a miss, it orchestrates the backend query and populates the cache."
-    click CachingSvc "https://g.co/expl/cC8d" "Component: Caching Service\nResponsibility: Provides a high-speed, in-memory, key-value store for caching the final search results with a configured TTL."
 ```
 
 ---

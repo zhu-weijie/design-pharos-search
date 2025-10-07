@@ -39,11 +39,6 @@ graph TD
 
     classDef data fill:#f9f9f9,stroke:#333,stroke-width:2px,stroke-dasharray: 5 5;
     class MessageQueue data;
-
-    click Crawler "https://g.co/expl/gKEp" "Component: Crawler\nResponsibility: Fetches HTML content and publishes a message (containing the content or a pointer to it) to the Message Queue."
-    click Indexer "https://g.co/expl/y7sD" "Component: Indexer\nResponsibility: Consumes messages from the queue, processes the content, and updates its search index."
-    click API "https://g.co/expl/Uq3a" "Component: API\nResponsibility: Exposes the search endpoint and queries the Indexer."
-    click MessageQueue "https://g.co/expl/jH3p" "Component: Message Queue\nResponsibility: Provides a durable, asynchronous communication channel between the Crawler and the Indexer."
 ```
 
 ---

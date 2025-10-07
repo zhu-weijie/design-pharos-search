@@ -43,9 +43,6 @@ graph TD
     %% Component Descriptions
     classDef component fill:#82a9d9,stroke:#333,stroke-width:2px;
     class Crawler,Indexer,UrlFrontier component;
-
-    click Crawler "https://g.co/expl/gKEp" "Component: Crawler\nResponsibility: A stateless worker. Sends discovered URLs to the Frontier, requests new work from the Frontier, and processes the dispatched URLs."
-    click UrlFrontier "https://g.co/expl/wZ9c" "Component: URL Frontier Service\nResponsibility: The stateful scheduler for the entire crawl operation. Manages URL storage, de-duplication, prioritization, and politeness."
 ```
 
 ---

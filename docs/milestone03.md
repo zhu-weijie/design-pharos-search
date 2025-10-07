@@ -46,9 +46,6 @@ graph TD
 
     classDef data fill:#f9f9f9,stroke:#333,stroke-width:2px,stroke-dasharray: 5 5;
     class InvertedIndex data;
-
-    click API "https://g.co/expl/Uq3a" "Component: API\nResponsibility: Exposes a single HTTP endpoint. Parses the SearchRequest, queries the InvertedIndex, and formats the SearchResponse."
-    click InvertedIndex "https://g.co/expl/qK5g" "Data Structure: An in-memory hash map where keys are words (tokens) and values are lists of document identifiers (URLs)."
 ```
 
 ---
@@ -71,8 +68,6 @@ graph TD
     %% Technology Choices
     classDef tech fill:#9d82d9,stroke:#333,stroke-width:2px;
     class Monolith tech;
-
-    click Monolith "https://g.co/expl/bN7k" "Technology: Go / Python / Node.js\nExposes an HTTP server on a specific port (e.g., 8080)."
 ```
 
 ---

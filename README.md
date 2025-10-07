@@ -16,10 +16,6 @@ graph TD
     %% Component Descriptions
     classDef component fill:#82a9d9,stroke:#333,stroke-width:2px;
     class Crawler,Indexer,API component;
-
-    click Crawler "https://g.co/expl/gKEp" "Component: Crawler\nResponsibility: Fetches HTML content from a hardcoded seed URL. Passes the content directly to the Indexer."
-    click Indexer "https://g.co/expl/y7sD" "Component: Indexer\nResponsibility: Parses HTML, tokenizes words, and builds an in-memory inverted index. Exposes methods for writing to and reading from the index."
-    click API "https://g.co/expl/Uq3a" "Component: API\nResponsibility: Exposes a single HTTP endpoint to accept user search queries. Queries the Indexer and returns results."
 ```
 
 ### Milestone 02: Define an In-Memory Data Flow
@@ -42,12 +38,6 @@ graph TD
 
     classDef data fill:#f9f9f9,stroke:#333,stroke-width:2px,stroke-dasharray: 5 5;
     class CrawledPage,InvertedIndex data;
-
-    click Crawler "https://g.co/expl/gKEp" "Component: Crawler\nResponsibility: Fetches HTML and produces a CrawledPage object."
-    click Indexer "https://g.co/expl/y7sD" "Component: Indexer\nResponsibility: Consumes CrawledPage objects to build and maintain the InvertedIndex."
-    click API "https://g.co/expl/Uq3a" "Component: API\nResponsibility: Queries the InvertedIndex to serve user requests."
-    click CrawledPage "https://g.co/expl/jH3p" "Data Object: A struct/class containing the page's URL and its raw HTML content."
-    click InvertedIndex "https://g.co/expl/qK5g" "Data Structure: An in-memory hash map where keys are words (tokens) and values are lists of document identifiers."
 ```
 
 ### Milestone 03: Expose Core Functionality via a Rudimentary API
@@ -77,9 +67,6 @@ graph TD
 
     classDef data fill:#f9f9f9,stroke:#333,stroke-width:2px,stroke-dasharray: 5 5;
     class InvertedIndex data;
-
-    click API "https://g.co/expl/Uq3a" "Component: API\nResponsibility: Exposes a single HTTP endpoint. Parses the SearchRequest, queries the InvertedIndex, and formats the SearchResponse."
-    click InvertedIndex "https://g.co/expl/qK5g" "Data Structure: An in-memory hash map where keys are words (tokens) and values are lists of document identifiers (URLs)."
 ```
 
 ### Milestone 04: Introduce an Asynchronous Message Bus for Decoupling
@@ -101,11 +88,6 @@ graph TD
 
     classDef data fill:#f9f9f9,stroke:#333,stroke-width:2px,stroke-dasharray: 5 5;
     class MessageQueue data;
-
-    click Crawler "https://g.co/expl/gKEp" "Component: Crawler\nResponsibility: Fetches HTML content and publishes a message (containing the content or a pointer to it) to the Message Queue."
-    click Indexer "https://g.co/expl/y7sD" "Component: Indexer\nResponsibility: Consumes messages from the queue, processes the content, and updates its search index."
-    click API "https://g.co/expl/Uq3a" "Component: API\nResponsibility: Exposes the search endpoint and queries the Indexer."
-    click MessageQueue "https://g.co/expl/jH3p" "Component: Message Queue\nResponsibility: Provides a durable, asynchronous communication channel between the Crawler and the Indexer."
 ```
 
 ### Milestone 05: Establish a Centralized, Durable Content Store
@@ -130,10 +112,6 @@ graph TD
 
     classDef data fill:#f9f9f9,stroke:#333,stroke-width:2px,stroke-dasharray: 5 5;
     class MessageQueue,ContentStore data;
-
-    click Crawler "https://g.co/expl/gKEp" "Component: Crawler\nResponsibility: Fetches HTML, saves it to the Content Store, and publishes a pointer to the Message Queue."
-    click Indexer "https://g.co/expl/y7sD" "Component: Indexer\nResponsibility: Consumes pointers, retrieves content from the Content Store, and updates its index."
-    click ContentStore "https://g.co/expl/aB5c" "Component: Content Store\nResponsibility: Provides a durable, highly-available repository for raw web page content."
 ```
 
 ### Milestone 06: Evolve the Index into a Persistent, Sharded Data Store
@@ -157,10 +135,6 @@ graph TD
 
     classDef data fill:#f9f9f9,stroke:#333,stroke-width:2px,stroke-dasharray: 5 5;
     class MessageQueue,SearchIndex data;
-
-    click Indexer "https://g.co/expl/y7sD" "Component: Indexer\nResponsibility: A pure data processing service. Consumes pointers, retrieves content, and transforms it into documents for the Search Index."
-    click API "https://g.co/expl/Uq3a" "Component: API\nResponsibility: Parses user queries and executes them directly against the Search Index to retrieve results."
-    click SearchIndex "https://g.co/expl/tP8r" "Component: Search Index\nResponsibility: Provides a durable, scalable, and queryable data store for the inverted index and all searchable content."
 ```
 
 ### Milestone 07: Define the Infrastructure-as-Code (IaC) and Containerization Strategy
@@ -212,10 +186,6 @@ graph TD
 
     classDef data fill:#f9f9f9,stroke:#333,stroke-width:2px,stroke-dasharray: 5 5;
     class SearchIndex data;
-
-    click API "https://g.co/expl/Uq3a" "Component: API\nResponsibility: Orchestrates the 'retrieve and re-rank' process. Queries the Search Index for candidates, then calls the Ranking Service to get the final result order."
-    click RankingSvc "https://g.co/expl/vF7b" "Component: Ranking Service\nResponsibility: Accepts a list of candidate documents and applies advanced, pluggable scoring algorithms to produce a final, relevance-sorted list."
-    click SearchIndex "https://g.co/expl/tP8r" "Component: Search Index\nResponsibility: Acts as the primary candidate retrieval engine. Optimized for fast, broad-recall text searches."
 ```
 
 ### Milestone 09: Formalize the URL Frontier as a Dedicated Service
@@ -238,9 +208,6 @@ graph TD
     %% Component Descriptions
     classDef component fill:#82a9d9,stroke:#333,stroke-width:2px;
     class Crawler,Indexer,UrlFrontier component;
-
-    click Crawler "https://g.co/expl/gKEp" "Component: Crawler\nResponsibility: A stateless worker. Sends discovered URLs to the Frontier, requests new work from the Frontier, and processes the dispatched URLs."
-    click UrlFrontier "https://g.co/expl/wZ9c" "Component: URL Frontier Service\nResponsibility: The stateful scheduler for the entire crawl operation. Manages URL storage, de-duplication, prioritization, and politeness."
 ```
 
 ### Milestone 10: Establish a Data Processing Pipeline for Enrichment
@@ -267,10 +234,6 @@ graph TD
     %% Component Descriptions
     classDef component fill:#82a9d9,stroke:#333,stroke-width:2px;
     class Deduplication,Enrichment,Loader,Crawler component;
-
-    click Deduplication "https://g.co/expl/dF4e" "Component: Deduplication Stage\nResponsibility: Consumes the initial message. Retrieves content and calculates a hash (e.g., Simhash) to check for and filter out near-duplicates. Passes a unique content message to the next stage."
-    click Enrichment "https://g.co/expl/eG5f" "Component: Enrichment Stage\nResponsibility: Performs NLP tasks like language identification, named-entity recognition, etc. Appends this metadata to the message and passes it on."
-    click Loader "https://g.co/expl/lH6g" "Component: Index Loader Stage\nResponsibility: The final stage. Formats the fully enriched data and loads it into the Search Index."
 ```
 
 ### Milestone 11: Integrate a Distributed Caching Layer
@@ -301,9 +264,6 @@ graph TD
 
     classDef data fill:#f9f9f9,stroke:#333,stroke-width:2px,stroke-dasharray: 5 5;
     class SearchIndex,CachingSvc data;
-
-    click API "https://g.co/expl/Uq3a" "Component: API\nResponsibility: Implements the cache-aside pattern. Checks the cache first. On a miss, it orchestrates the backend query and populates the cache."
-    click CachingSvc "https://g.co/expl/cC8d" "Component: Caching Service\nResponsibility: Provides a high-speed, in-memory, key-value store for caching the final search results with a configured TTL."
 ```
 
 ### Overall Logical View (C4 Component Diagram)
@@ -361,22 +321,6 @@ graph TD
     %% Apply Styles to all defined components and data stores
     class API,Ranking,Crawler,Frontier,Deduplication,Enrichment,Loader component;
     class Cache,SearchIndex,ContentStore,ContentQueue data;
-
-    %% Add click-based tooltips for component descriptions
-    click API "Component: API\nOrchestrates user queries, managing caching and re-ranking."
-    click Cache "Data Store: Caching Service\nProvides a high-speed, in-memory cache for query results."
-    click Ranking "Component: Ranking Service\nApplies advanced scoring models to a candidate set of results."
-    click SearchIndex "Data Store: Search Index\nStores and serves indexed documents for fast candidate retrieval. It is written to by the ingestion path and read from by the query path."
-    
-    click Crawler "Component: Crawler\nStateless worker that fetches web pages based on jobs from the Frontier."
-    click Frontier "Component: URL Frontier Service\nStateful scheduler managing all URLs, prioritization, and politeness."
-    
-    click ContentStore "Data Store: Content Store\nPermanent, durable storage for all raw crawled web page content."
-    click ContentQueue "Data Store: Message Queue\nAsynchronously triggers the start of the data processing pipeline."
-    
-    click Deduplication "Component: Deduplication Stage\nFilters out near-duplicate content before further processing."
-    click Enrichment "Component: Enrichment Stage\nAdds valuable metadata (e.g., language, entities) to the content."
-    click Loader "Component: Index Loader Stage\nFormats and writes the final, enriched document into the Search Index."
 ```
 
 ## Physical View (Deployment Diagram)
@@ -397,8 +341,6 @@ graph TD
     %% Technology Choices
     classDef tech fill:#9d82d9,stroke:#333,stroke-width:2px;
     class Monolith tech;
-
-    click Monolith "https://g.co/expl/bN7k" "Technology: Go / Python / Node.js\nA single, compiled binary or script running the entire application."
 ```
 
 ### Milestone 02: Define an In-Memory Data Flow
@@ -417,8 +359,6 @@ graph TD
     %% Technology Choices
     classDef tech fill:#9d82d9,stroke:#333,stroke-width:2px;
     class Monolith tech;
-
-    click Monolith "https://g.co/expl/bN7k" "Technology: Go / Python / Node.js\nA single, compiled binary or script running the entire application."
 ```
 
 ### Milestone 03: Expose Core Functionality via a Rudimentary API
@@ -437,8 +377,6 @@ graph TD
     %% Technology Choices
     classDef tech fill:#9d82d9,stroke:#333,stroke-width:2px;
     class Monolith tech;
-
-    click Monolith "https://g.co/expl/bN7k" "Technology: Go / Python / Node.js\nExposes an HTTP server on a specific port (e.g., 8080)."
 ```
 
 ### Milestone 04: Introduce an Asynchronous Message Bus for Decoupling

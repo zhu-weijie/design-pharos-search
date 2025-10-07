@@ -37,10 +37,6 @@ graph TD
     %% Component Descriptions
     classDef component fill:#82a9d9,stroke:#333,stroke-width:2px;
     class Crawler,Indexer,API component;
-
-    click Crawler "https://g.co/expl/gKEp" "Component: Crawler\nResponsibility: Fetches HTML content from a hardcoded seed URL. Passes the content directly to the Indexer."
-    click Indexer "https://g.co/expl/y7sD" "Component: Indexer\nResponsibility: Parses HTML, tokenizes words, and builds an in-memory inverted index. Exposes methods for writing to and reading from the index."
-    click API "https://g.co/expl/Uq3a" "Component: API\nResponsibility: Exposes a single HTTP endpoint to accept user search queries. Queries the Indexer and returns results."
 ```
 
 ---
@@ -63,8 +59,6 @@ graph TD
     %% Technology Choices
     classDef tech fill:#9d82d9,stroke:#333,stroke-width:2px;
     class Monolith tech;
-
-    click Monolith "https://g.co/expl/bN7k" "Technology: Go / Python / Node.js\nA single, compiled binary or script running the entire application."
 ```
 
 ---

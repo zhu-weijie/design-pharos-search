@@ -53,22 +53,6 @@ graph TD
     %% Apply Styles to all defined components and data stores
     class API,Ranking,Crawler,Frontier,Deduplication,Enrichment,Loader component;
     class Cache,SearchIndex,ContentStore,ContentQueue data;
-
-    %% Add click-based tooltips for component descriptions
-    click API "Component: API\nOrchestrates user queries, managing caching and re-ranking."
-    click Cache "Data Store: Caching Service\nProvides a high-speed, in-memory cache for query results."
-    click Ranking "Component: Ranking Service\nApplies advanced scoring models to a candidate set of results."
-    click SearchIndex "Data Store: Search Index\nStores and serves indexed documents for fast candidate retrieval. It is written to by the ingestion path and read from by the query path."
-    
-    click Crawler "Component: Crawler\nStateless worker that fetches web pages based on jobs from the Frontier."
-    click Frontier "Component: URL Frontier Service\nStateful scheduler managing all URLs, prioritization, and politeness."
-    
-    click ContentStore "Data Store: Content Store\nPermanent, durable storage for all raw crawled web page content."
-    click ContentQueue "Data Store: Message Queue\nAsynchronously triggers the start of the data processing pipeline."
-    
-    click Deduplication "Component: Deduplication Stage\nFilters out near-duplicate content before further processing."
-    click Enrichment "Component: Enrichment Stage\nAdds valuable metadata (e.g., language, entities) to the content."
-    click Loader "Component: Index Loader Stage\nFormats and writes the final, enriched document into the Search Index."
 ```
 
 ### Overall Physical View (Deployment Diagram)
